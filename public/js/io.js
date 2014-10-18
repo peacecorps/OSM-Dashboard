@@ -25,20 +25,27 @@ var run = setInterval(function() {
   if (entries.length > 0) {
     entry = entries.pop();
     try {
-      var p1 = new L.LatLng(entry.min_lat, entry.min_lon);
-      var p2 = new L.LatLng(entry.max_lat, entry.max_lon);
-      var bounds = [p1, p2];
-      map.fitBounds(bounds);
+      if (entry.min_lat && entry.min_lon && entry.max_lat && entry.max_lon) {
+        var p1 = new L.LatLng(entry.min_lat, entry.min_lon);
+        var p2 = new L.LatLng(entry.max_lat, entry.max_lon);
+        var bounds = [p1, p2];
+        map.fitBounds(bounds);
 
-      var rect = L.rectangle(bounds, {color: 'red', weight: 1}).addTo(map);
-      shapes.push(rect);
+        var rect = L.rectangle(bounds, {color: 'red', weight: 1}).addTo(map);
+        shapes.push(rect);
+        if (shapes.length = 5) {
+          shape = shapes.shift();
+          map.removeLayer(shape);
+        }
+      }
+
     } catch(e) {
       console.log(e);
     }
   } else {
     //used_ids = [];
-    shapes.forEach(function(shape){
-      map.removeLayer(shape);
-    });
+    //shapes.forEach(function(shape){
+      //map.removeLayer(shape);
+    //});
   }
 }, 500);

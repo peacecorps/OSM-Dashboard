@@ -3,6 +3,8 @@
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url(http://fonts.googleapis.com/css?family=Graduate);
+@import url(http://fonts.googleapis.com/css?family=Patua+One);
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -25,8 +27,72 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+body, html {
+  background-color: #F1ECD3
+}
+
+.btn-primary {
+  background-color: #100D57;
+  border-color: #060438;
+}
+
+.btn-primary:hover {
+  background-color: #15395A;
+}
+
+h1, h2, h3, h4, {
+  font-family: 'Patua One', cursive;
+}
+
+.navbar {
+  box-shadow: 0px 0px 10px black;
+  margin: 0px;
+}
+
 #map2 {
-	padding-top: 50px;
+  position: relative;
+  top: 0px;
+  padding-top: 50px;
+  background-image:url('../img/cropped (2).gif');
+  background-size: 100%;
+  height: 300px;
+}
+
+#map2 .title {
+  color: white;
+  font-family: 'Patua One', cursive;
+  font-size: 50px;
+  bottom: 0px;
+  top: 50px;
+  left: 0px;
+  right: 0px;
+  text-align: right;
+  position: absolute;
+  background-color: rgba(100,100,100,0.8);
+}
+
+#map2 .title h1 {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+}
+
+#about {
+  box-shadow: inset 0px -10px 20px rgba(0,0,0,0.2);
+}
+
+#about center {
+  padding-top: 30px;
+}
+
+#about center button {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+#about h1 {
+  font-size: 30px;
+  font-family: 'Patua One', cursive;
 }
 
 .h2 {
@@ -35,7 +101,7 @@ time, mark, audio, video {
 }
 
 #h2 {
-	padding-top: 150px;
+	padding-top: 120px;
 	font-size: 100%;
 }
 
@@ -56,7 +122,7 @@ time, mark, audio, video {
 }
 
 #jumbotron-wrapper {
-	height: 600px;
+	height: 300px;
 }
 
 .jumbotron {
@@ -64,6 +130,9 @@ time, mark, audio, video {
 	position: absolute;
 	height: 100%;
 	width: 100%;
+}
+.jumbotron .row {
+
 }
 #statistics {
 	padding-top: 0px;

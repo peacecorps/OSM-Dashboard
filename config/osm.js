@@ -6,9 +6,10 @@ debugger;
 exports.getInstantUser = function(name, callback) {
   var url = 'https://api.openstreetmap.org/api/0.6/changesets?display_name=' + name;
   var d = new Date();
-  d.setTime(d.getTime()-300000);
+  d.setTime(d.getTime()-60000);
   var iso = d.toISOString().slice(0,10);
-  var time = iso + "T" + (d.getHours()<10?'0':'') + d.getHours() + ":" + (d.getMinutes()<10?'0':'') + d.getMinutes() + ":" + d.getSeconds() + "Z";
+  var h = parseInt(d.getHours())+4;
+  var time = iso + "T" + (h<10?'0':'') + h + ":" + (d.getMinutes()<10?'0':'') + d.getMinutes() + ":" + d.getSeconds() + "Z";
   url += "&time="+time;
   request(url, function(error, response, body) {
     if (error) {
@@ -40,7 +41,7 @@ exports.getInstantUser = function(name, callback) {
         });
       });
     } else {
-      console.log(name + " not found");
+      //console.log(name + " not found");
       callback();
     }
   });
@@ -53,9 +54,9 @@ exports.fetchInstant = function(io, names, callback) {
     asyncTasks.push(function(callback) {
       exports.getInstantUser(name, function(response) {
         if (response) {
-          for (var i = 0; i<response.length-1; i++) {
+          for (var i = 0; i<response.length; i++) {
             if (response[i]) {
-              console.log("SENDING" + Math.random());
+              console.log(response[i].$);
               io.emit('data', response[i].$);
             }
           }
@@ -108,7 +109,7 @@ exports.getSingleUser = function(name, callback) {
         });
       });
     } else {
-      console.log(name + " not found")
+      //console.log(name + " not found")
       callback();
     }
   });

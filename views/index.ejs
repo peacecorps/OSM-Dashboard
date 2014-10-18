@@ -85,7 +85,6 @@
 });
    feed.run();
   </script>
-      
   </head>
   <body>
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -100,7 +99,6 @@
         <span class="icon-bar"></span>
       </button>
     </div>
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#map">Map</a></li>
@@ -116,26 +114,23 @@
     </div>
   </div>
 </nav>
-<div id="map2">
-  <div id="jumbotron-wrapper">
-    <div class="jumbotron">
-      <div class="row">
-        <div class="col-lg-4">
-          <img src="img/cropped (2).gif" class="img-rounded">
-            </div>
-              <div class="col-lg-8">
-                <div class="page-header">
-                  <div id="h2">
-                    <h2 <align="center"><font color="white"><font size="200">Make an impact. Map your world.
-                  </div>
-                </div>
-              </div>
-          </div>
-      </div>
+<div class="row" id="map2">
+  <div class="title">
+    <h1>Make an impact. Map your world.</h1>
   </div>
 </div>
-<div id="map" style="height: 500px;"></div>
-<script>initmap();</script>
+<div class="row" id = "about">
+  <center>
+  <h1>Real Time Edits By #PeaceCorps Mappers</h1>
+   <button class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-example-modal-sm">Join Us</button>
+  </center>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div id="map" style="height: 500px;"></div>
+    <script>initmap();</script>
+  </div>
+</div>
 <div id="action-btn">
   <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Take Action</button>
 </div>
@@ -172,29 +167,29 @@
     <ul style="float:left; width:400px; height:500px;">
         <class="list-group"><align="center"><font color="black"><font size="36">Leaderboard
         <li class="list-group-item">
-    <span class="badge">1000</span>
-    Leader #1
+    <span class="badge"><%= stats.leaderboard[0].count %></span>
+    <%= stats.leaderboard[0].name %>
     <li class="list-group-item">
-    <span class="badge">900</span>
-    Leader #2
+    <span class="badge"><%= stats.leaderboard[1].count %></span>
+    <%= stats.leaderboard[1].name %>
     <li class="list-group-item">
-    <span class="badge">800</span>
-    Leader #3
+    <span class="badge"><%= stats.leaderboard[2].count %></span>
+    <%= stats.leaderboard[2].name %>
     <li class="list-group-item">
-    <span class="badge">700</span>
-    Leader #4
+    <span class="badge"><%= stats.leaderboard[3].count %></span>
+    <%= stats.leaderboard[3].name %>
     <li class="list-group-item">
-    <span class="badge">600</span>
-    Leader #5
+    <span class="badge"><%= stats.leaderboard[4].count %></span>
+    <%= stats.leaderboard[4].name %>
     <li class="list-group-item">
-    <span class="badge">500</span>
-    Leader #6
+    <span class="badge"><%= stats.leaderboard[5].count %></span>
+    <%= stats.leaderboard[5].name %>
     <li class="list-group-item">
-    <span class="badge">400</span>
-    Leader #7
+    <span class="badge"><%= stats.leaderboard[6].count %></span>
+    <%= stats.leaderboard[6].name %>
     <li class="list-group-item">
-    <span class="badge">300</span>
-    Leader #8
+    <span class="badge"><%= stats.leaderboard[7].count %></span>
+    <%= stats.leaderboard[7].name %>
     </ul>
 
 </div>
