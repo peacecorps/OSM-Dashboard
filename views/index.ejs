@@ -124,58 +124,68 @@
   <div id="img">
     <img src="img/ezgif.com-resize.gif" alt="Logo" style="width:1235px;height:152px">
   </div>
+  <!--
   <div class="page-header">
     <h2> <align="center"><font color="black"><font size="36">Statistics
   </div>
+  -->
   <div id="url" style="display: block;">
-        <iframe width="1200" height="400" src="http://resultmaps.neis-one.org/osm-changesets?comment=PeaceCorps#4/-5.05/6.28" frameborder="0" allowfullscreen></iframe>
-
-</div>
-</div>
-
-</div>
-
-<div id="left" style="display: block;">
-    <ul style="float:left; width:400px; height:500px;">
-      <img src="https://docs.google.com/a/peacecorps.gov/spreadsheet/oimg?key=0AmYpLZjEpObrdF9TX1lzY1NCSVl4RUZfS21JZmJlR3c&oid=9&zx=7siyjj1zfe95" />
-    </ul>
+    <center>
+        <iframe width="1200" height="600" src="http://resultmaps.neis-one.org/osm-changesets?comment=PeaceCorps#4/-5.05/6.28" frameborder="0" allowfullscreen></iframe>
+    </center>
+  </div>
 </div>
 
-<div id="left" style="display: block;">
-    <ul style="float:left; width:400px; height:500px;">
-        <class="list-group"><align="center"><font color="black"><font size="36">Leaderboard
+</div>
+
+<div class="row">
+
+  <div class="col-lg-3">
+    <div id="left" class="col-lg-12" style="display: block;">
+        <ul style="width:100%; height:500px;">
+            <class="list-group"><align="center"><font color="black"><font size="36">Leaderboard
+            <li class="list-group-item">
+        <span class="badge"><%= stats.leaderboard[0].count %></span>
+        <%= stats.leaderboard[0].name %>
         <li class="list-group-item">
-    <span class="badge"><%= stats.leaderboard[0].count %></span>
-    <%= stats.leaderboard[0].name %>
-    <li class="list-group-item">
-    <span class="badge"><%= stats.leaderboard[1].count %></span>
-    <%= stats.leaderboard[1].name %>
-    <li class="list-group-item">
-    <span class="badge"><%= stats.leaderboard[2].count %></span>
-    <%= stats.leaderboard[2].name %>
-    <li class="list-group-item">
-    <span class="badge"><%= stats.leaderboard[3].count %></span>
-    <%= stats.leaderboard[3].name %>
-    <li class="list-group-item">
-    <span class="badge"><%= stats.leaderboard[4].count %></span>
-    <%= stats.leaderboard[4].name %>
-    <li class="list-group-item">
-    <span class="badge"><%= stats.leaderboard[5].count %></span>
-    <%= stats.leaderboard[5].name %>
-    <li class="list-group-item">
-    <span class="badge"><%= stats.leaderboard[6].count %></span>
-    <%= stats.leaderboard[6].name %>
-    <li class="list-group-item">
-    <span class="badge"><%= stats.leaderboard[7].count %></span>
-    <%= stats.leaderboard[7].name %>
-    </ul>
+        <span class="badge"><%= stats.leaderboard[1].count %></span>
+        <%= stats.leaderboard[1].name %>
+        <li class="list-group-item">
+        <span class="badge"><%= stats.leaderboard[2].count %></span>
+        <%= stats.leaderboard[2].name %>
+        <li class="list-group-item">
+        <span class="badge"><%= stats.leaderboard[3].count %></span>
+        <%= stats.leaderboard[3].name %>
+        <li class="list-group-item">
+        <span class="badge"><%= stats.leaderboard[4].count %></span>
+        <%= stats.leaderboard[4].name %>
+        <li class="list-group-item">
+        <span class="badge"><%= stats.leaderboard[5].count %></span>
+        <%= stats.leaderboard[5].name %>
+        <li class="list-group-item">
+        <span class="badge"><%= stats.leaderboard[6].count %></span>
+        <%= stats.leaderboard[6].name %>
+        <li class="list-group-item">
+        <span class="badge"><%= stats.leaderboard[7].count %></span>
+        <%= stats.leaderboard[7].name %>
+        </ul>
+
+    </div>
+  </div>
+
+  <div id="left" class="col-lg-4">
+    <center>
+        <img style= "width:80%" src="https://docs.google.com/a/peacecorps.gov/spreadsheet/oimg?key=0AmYpLZjEpObrdF9TX1lzY1NCSVl4RUZfS21JZmJlR3c&oid=9&zx=7siyjj1zfe95" />
+      </center>
+  </div>
+  <div id="right" class="col-lg-4">
+    <center>
+        <img style= "width:80%" src="https://docs.google.com/a/peacecorps.gov/spreadsheet/oimg?key=0AmYpLZjEpObrdF9TX1lzY1NCSVl4RUZfS21JZmJlR3c&oid=10&zx=xlbsrpso4vy1" />
+        </center>
+  </div>
 
 </div>
-<div id="right" style="display: block;">
-    <ul style="float:left; width:400px; height:500px;">
-      <img src="https://docs.google.com/a/peacecorps.gov/spreadsheet/oimg?key=0AmYpLZjEpObrdF9TX1lzY1NCSVl4RUZfS21JZmJlR3c&oid=10&zx=xlbsrpso4vy1" />
-    </ul>
-</div>
+
 </div>
 </div>
 </div>
