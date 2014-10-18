@@ -1,25 +1,189 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+  <head>  
+    <title>Peace Corps Mapping</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/functions.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="js/instafeed.min.js"></script>
+ <script type="text/javascript">
+   var feed = new Instafeed ({
+    get: "tagged",
+    tagName: "peacecorps",
+    limit: "12",
+    resolution: "low_resolution",
+    clientId: "4cbcb604b8544c4e94b50e7be02ea9ef",
+    template: '<div id="caption">{{caption}} /></div>',
+    mock: true,
+  custom: {
+    images: [],
+    currentImage: 0,
+    showImage: function () {
+      var result, image;
+      image = this.options.custom.images[this.options.custom.currentImage];
+      result = this._makeTemplate(this.options.template, {
+        model: image,
+        id: image.id,
+        link: image.link,
+        image: image.images[this.options.resolution].url,
+        caption: this._getObjectProperty(image, 'caption.text'),
+        likes: image.likes.count,
+        comments: image.comments.count,
+        location: this._getObjectProperty(image, 'location.name')
+      });
+      $("#instafeed").html(result);
+    }
+  },
+  success: function (data) {
+    this.options.custom.images = data.data; 
+    this.options.custom.showImage.call(this);
+  }
+});
+   feed.run();
+  </script>
+      
   </head>
   <body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#map">Map</a></li>
+        <li><a href="#statistics">Statistics</a></li>
+        <li><a href="#blog">Instagram</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          <span class="sr-only">60% Complete</span></a></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</nav>
+<div id="map">
+  <div id="jumbotron-wrapper">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-lg-4">
+          <img src="img/cropped (2).gif" class="img-rounded">
+            </div>
+              <div class="col-lg-8">
+                <div class="page-header">
+                  <div id="h2">
+                    <h2 <align="center"><font color="white"><font size="200">Make an impact. Map your world.
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div id="action-btn">
+  <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Take Action</button>
+</div>
+<div id="statistics">
+  <div id="img">
+    <img src="img/ezgif.com-resize.gif" alt="Logo" style="width:1235px;height:152px">
+  </div>
+  <div class="page-header">
+    <h2> <align="center"><font color="black"><font size="36">Statistics
+  </div>
+  <div id="left" style="display: block;"> 
+    <ul style="float:left; width:1200px; height:500px;">
+        <img src="img/ExampleGraph.png" alt="Logo" style="width:304px;height:228px">
+    </ul>
+  </div>
+</div>
+
+</div>
+<div id="left" style="display: block;"> 
+    <ul style="float:left; width:400px; height:500px;">
+        <img src="img/peacecorps3.jpg" alt="Logo" style="width:304px;height:228px">
+    </ul>
+
+</div>
+
+<div id="left" style="display: block;"> 
+    <ul style="float:left; width:400px; height:500px;">
+        <img src="img/peacecorps3.jpg" alt="Logo" style="width:304px;height:228px">
+    </ul>
+
+</div>
+
+<div id="left" style="display: block;"> 
+    <ul style="float:left; width:400px; height:500px;">
+        <class="list-group"><align="center"><font color="black"><font size="36">Leaderboard
+        <li class="list-group-item">
+    <span class="badge">1000</span>
+    Leader #1
+    <li class="list-group-item">
+    <span class="badge">900</span>
+    Leader #2
+    <li class="list-group-item">
+    <span class="badge">800</span>
+    Leader #3
+    <li class="list-group-item">
+    <span class="badge">700</span>
+    Leader #4
+    <li class="list-group-item">
+    <span class="badge">600</span>
+    Leader #5
+    <li class="list-group-item">
+    <span class="badge">500</span>
+    Leader #6
+    <li class="list-group-item">
+    <span class="badge">400</span>
+    Leader #7
+    <li class="list-group-item">
+    <span class="badge">300</span>
+    Leader #8
+    </ul>
+
+</div>
+</div>
+</div>
+</div>
+<div id="blog">
+  <div id="instawrap">
+    <div class="page-header">
+      <h2> <align="center"><font color="black"><font size="36">#PeaceCorpsMapping
+    </div>
+    <div id="instafeed"></div>
+  </div>
+</div> 
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h2 id="myModalLabel">Take Action</h2>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <a class="btn-group-vertical" href="http://tasks.hotosm.org/?sort_by=priority&direction=asc&search=peace+corps">Map</a></button>
+          <a class="btn-group-vertical" href="https://farm3.staticflickr.com/2947/15468503476_923bb05c56.jpg">Request</a></li></button>
+          <a class="btn-group-vertical" href="https://docs.google.com/forms/d/10CJW-3nvX2fzKmB-I1puXi_tWRBxVB5GuGmnlST9fg4/viewform">Join</a></li></button>
+          <a class="btn-group-vertical" href="http://www.facebook.com/sharer.php?u=http://www.peacecorps.gov/">Share</a></li></button>
+      </div>
+      </div>
+    </div>
+  </div> 
+</div>
+
   </body>
-<script>
-/*$.ajax({
-  type: 'POST',
-  url: 'newuser',
-  data: {
-    name: "agab29"
-  },
-  success: function(valid){
-    if (valid) {
-      console.log("yay");
-    } else {
-      console.log("boo");
-    }
-  }
-});*/
-</script>
 </html>
