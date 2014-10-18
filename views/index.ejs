@@ -3,8 +3,52 @@
   <head>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/leaflet/0.5/leaflet.js'></script>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/leaflet/0.5/leaflet.css' />
+    <script src="//cdn.socket.io/socket.io-1.0.0.js"></script>
+    <script src="js/io.js"></script>
+    <script>
+      var map;
+      var ajaxRequest;
+      var plotlist;
+      var plotlayers=[];
+      var drawnItems;
+
+      function initmap() {
+        // set up the map
+        map = new L.Map('map', {
+          zoomControl: false,
+          dragging: false,
+          scrollWheelZoom: false,
+          doubleClickZoom: false,
+          boxZoom: false,
+          drawControl: true
+        });
+
+        /*var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        var drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        map.addControl(drawControl);*/
+
+        // create the tile layer with correct attribution
+        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+        var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 16, attribution: osmAttrib});
+
+        // start the map in South-East England
+        map.setView(new L.LatLng(51.3, 0.7),9);
+        map.addLayer(osm);
+      }
+    </script>
   </head>
   <body>
+    <div id="map" style="height: 500px;"></div>
+    <script>initmap();</script>
   </body>
 <script>
 /*$.ajax({

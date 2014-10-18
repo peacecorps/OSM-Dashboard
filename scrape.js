@@ -2,6 +2,17 @@ var gs = require('./config/gs.js');
 var osm = require('./config/osm.js');
 
 module.exports = function (scraper, db) {
+  scraper.dataNow = function(io) {
+    db.collection('raw_data').find().toArray(function(err, result) {
+      names = result.map(function(obj) { return obj.name });
+      osm.fetchInstant(io, names, function() {
+        scraper.dataNow(io);
+        console.log('scrape!');
+        return;
+      });
+    });
+  }
+
   scraper.refreshData = function() {
     console.log('refreshing data');
     gs.getUsers(function(names) {
@@ -12,6 +23,7 @@ module.exports = function (scraper, db) {
         for (var i = 0; i < users.length-1; i++) {
           if (users[i]) {
             db.collection('raw_data').save(users[i], function(err, result) {});
+            console.log('saved to db');
           }
         }
         scraper.analyzeData(users);

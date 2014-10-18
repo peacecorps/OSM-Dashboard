@@ -5,6 +5,8 @@ var mongo = require('mongodb');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -40,6 +42,17 @@ setInterval(function() {
   //app.refreshData();
 },30000)
 
-app.listen(app.get('port'), function() {
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
+
+setTimeout(function(){
+  app.dataNow(io);
+}, 10);
+
+http.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
