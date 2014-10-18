@@ -57,34 +57,19 @@
     limit: "12",
     resolution: "low_resolution",
     clientId: "4cbcb604b8544c4e94b50e7be02ea9ef",
-    template: '<div id="caption">{{caption}} /></div>',
-    mock: true,
-  custom: {
-    images: [],
-    currentImage: 0,
-    showImage: function () {
-      var result, image;
-      image = this.options.custom.images[this.options.custom.currentImage];
-      result = this._makeTemplate(this.options.template, {
-        model: image,
-        id: image.id,
-        link: image.link,
-        image: image.images[this.options.resolution].url,
-        caption: this._getObjectProperty(image, 'caption.text'),
-        likes: image.likes.count,
-        comments: image.comments.count,
-        location: this._getObjectProperty(image, 'location.name')
-      });
-      $("#instafeed").html(result);
-    }
-  },
-  success: function (data) {
-    this.options.custom.images = data.data;
-    this.options.custom.showImage.call(this);
-  }
-});
+   });
    feed.run();
   </script>
+
+ 
+   
+  <script type="text/javascript">
+  var d1 = [[1, 300], [2, 600], [3, 550], [4, 400], [5, 300]];
+   
+  $(document).ready(function () {
+      $.plot($("#placeholder"), [d1]);
+  });
+  </script>
       
   </head>
   <body>
@@ -146,26 +131,18 @@
   <div class="page-header">
     <h2> <align="center"><font color="black"><font size="36">Statistics
   </div>
-  <div id="left" style="display: block;">
-    <ul style="float:left; width:1200px; height:500px;">
-        <img src="img/ExampleGraph.png" alt="Logo" style="width:304px;height:228px">
-    </ul>
-  </div>
-</div>
+  <div id="url" style="display: block;">
+        <iframe width="1200" height="400" src="http://resultmaps.neis-one.org/osm-changesets?comment=PeaceCorps#4/-5.05/6.28" frameborder="0" allowfullscreen></iframe>
 
 </div>
-<div id="left" style="display: block;">
-    <ul style="float:left; width:400px; height:500px;">
-        <img src="img/peacecorps3.jpg" alt="Logo" style="width:304px;height:228px">
-    </ul>
+</div>
 
 </div>
 
 <div id="left" style="display: block;">
     <ul style="float:left; width:400px; height:500px;">
-        <img src="img/peacecorps3.jpg" alt="Logo" style="width:304px;height:228px">
+      <img src="https://docs.google.com/a/peacecorps.gov/spreadsheet/oimg?key=0AmYpLZjEpObrdF9TX1lzY1NCSVl4RUZfS21JZmJlR3c&oid=9&zx=7siyjj1zfe95" />
     </ul>
-
 </div>
 
 <div id="left" style="display: block;">
@@ -198,6 +175,11 @@
     </ul>
 
 </div>
+<div id="right" style="display: block;">
+    <ul style="float:left; width:400px; height:500px;">
+      <img src="https://docs.google.com/a/peacecorps.gov/spreadsheet/oimg?key=0AmYpLZjEpObrdF9TX1lzY1NCSVl4RUZfS21JZmJlR3c&oid=10&zx=xlbsrpso4vy1" />
+    </ul>
+</div>
 </div>
 </div>
 </div>
@@ -218,12 +200,28 @@
           <h2 id="myModalLabel">Take Action</h2>
       </div>
       <div class="modal-body">
-      </div>
-      <div class="modal-footer">
+       
         <a class="btn-group-vertical" href="http://tasks.hotosm.org/?sort_by=priority&direction=asc&search=peace+corps">Map</a></button>
-          <a class="btn-group-vertical" href="https://farm3.staticflickr.com/2947/15468503476_923bb05c56.jpg">Request</a></li></button>
+          <a class="btn-group-vertical" href="https://docs.google.com/forms/d/1V49LWQQK42UewA8IXWWzvs76Aw6i9k278S_sfckJyCs/viewform?c=0&w=1">Request</a></li></button>
           <a class="btn-group-vertical" href="https://docs.google.com/forms/d/10CJW-3nvX2fzKmB-I1puXi_tWRBxVB5GuGmnlST9fg4/viewform">Join</a></li></button>
           <a class="btn-group-vertical" href="http://www.facebook.com/sharer.php?u=http://www.peacecorps.gov/">Share</a></li></button>
+           <!--
+          <div class="row">
+            <div class="col-xs-5">
+            buttonnn
+            </div>
+            </div class="col-xs-7">
+            Label
+            </div>
+          </div>
+          <div class="row">
+          </div>
+          <div class="row">
+          </div>
+          <div class="row">
+          </div>-->
+      </div>
+      <div class="modal-footer">
       </div>
       </div>
     </div>

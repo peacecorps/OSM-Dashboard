@@ -129,33 +129,10 @@ time, mark, audio, video {
 	z-index: -1
 }
 
-#caption {
-      z-index: 99999999;
-      color: rgba(255,255,255,1);
-      font-size: 16px;
-      position: absolute;
-      bottom: 50px;
-      right: 50px;
-      text-shadow: 0 1px 1px #000;
-      line-height: .9em;
-      font-family: helvetica neue;
-      font-weight: 200;
-      width: 50%;
-      text-align: right;
-      line-height: 1.3em;
-    }
+ .boxed {
+  border: 5px solid blue ;
+}
 
- #caption {
-      z-index: 99999999;
-      color: rgba(255,255,255,1);
-      font-size: 16px;
-      position: relative;
-      left: 50px;
-      text-shadow: 0 1px 1px #000;
-      line-height: .9em;
-      font-family: helvetica neue;
-      font-weight: 200;
-      width: 75%;
-      text-align: left;
-      line-height: 1.3em;
-    }
+#url{
+	width: 100%
+}
