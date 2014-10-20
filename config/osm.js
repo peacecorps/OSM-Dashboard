@@ -2,7 +2,6 @@ var request = require('request');
 var exports = module.exports = {};
 var parseString = require('xml2js').parseString;
 async = require("async");
-debugger;
 exports.getInstantUser = function(name, callback) {
   var url = 'https://api.openstreetmap.org/api/0.6/changesets?display_name=' + name;
   var d = new Date();

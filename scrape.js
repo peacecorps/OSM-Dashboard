@@ -1,12 +1,12 @@
 var gs = require('./config/gs.js');
 var osm = require('./config/osm.js');
-
 module.exports = function (scraper, db) {
   scraper.dataNow = function(io) {
     db.collection('raw_data').find().toArray(function(err, result) {
       names = result.map(function(obj) { return obj.name });
       osm.fetchInstant(io, names, function() {
         scraper.dataNow(io);
+        debugger;
         console.log('scrape!');
         return;
       });

@@ -35,7 +35,7 @@ var routes = require('./routes');
 app.use('/', routes);
 
 require('./scrape.js')(app, db);
-//app.refreshData();
+app.refreshData();
 
 setInterval(function() {
   //console.log("refreshing data");

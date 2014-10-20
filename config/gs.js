@@ -1,4 +1,4 @@
-var config = require('./auth');
+var config = require('../config');
 var GoogleSpreadsheet = require("google-spreadsheet");
 
 var my_sheet = new GoogleSpreadsheet(config.gsheet.key);
