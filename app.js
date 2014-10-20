@@ -20,8 +20,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var Db = mongo.Db;
 var Server = mongo.Server;
+var uri = process.env.MONGOLAB_URI || 'localhost';
 var db = new Db('peacecorp',
-  new Server('localhost', '27017', {auto_reconnect: true}, {}),
+  new Server(uri, '27017', {auto_reconnect: true}, {}),
   {safe: true}
 );
 db.open(function(){});
