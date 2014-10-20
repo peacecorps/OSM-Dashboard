@@ -24,16 +24,16 @@ exports.getInstantUser = function(name, callback) {
           return;
         }
         var asyncArray = [];
-        //new_items = [];
-        /*items.forEach(function(item) {
+        new_items = [];
+        items.forEach(function(item) {
           asyncArray.push(function(callback) {
             exports.getEdits(item.$, function(response) {
               item.$.edits = response;
-              //new_items.push(item);
+              new_items.push(item);
               callback();
             })
           });
-        });*/
+        });
         async.parallel(asyncArray, function(){
           callback(items);
           return;
@@ -124,7 +124,7 @@ exports.getEdits = function(item, callback) {
     }
     if (!error && response.statusCode == 200) {
       parseString(body, function(err, result) {
-        callback(result);
+        callback(result.osmChange.create);
       });
     }
   });

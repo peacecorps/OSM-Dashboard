@@ -35,6 +35,9 @@ MongoClient.connect(uri, function(err, database) {
 
   require('./scrape.js')(app, db);
   app.refreshData();
+  db.collection('raw_data').find().toArray(function(err, users) {
+    app.analyzeData(users);
+  });
 });
 
 /*var Server = mongo.Server;
