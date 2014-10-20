@@ -7,8 +7,7 @@ module.exports = function (scraper, db) {
       osm.fetchInstant(io, names, function() {
         setTimeout(function() {
           scraper.dataNow(io);
-        }, 100);
-        console.log('scrape!');
+        }, 200);
         return;
       });
     });
