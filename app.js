@@ -25,7 +25,17 @@ var db = new Db('peacecorp',
   new Server(uri, '27017', {auto_reconnect: true}, {}),
   {safe: true}
 );
-db.open(function(){});
+db.open(function(){
+  io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+      console.log('user disconnected');
+    });
+  });
+  setTimeout(function(){
+    app.dataNow(io);
+  }, 100);
+});
 
 app.use(function(req, res, next){
   req.db = db;
@@ -43,12 +53,6 @@ setInterval(function() {
   //app.refreshData();
 },30000)
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-});
 
 setTimeout(function(){
   app.dataNow(io);
