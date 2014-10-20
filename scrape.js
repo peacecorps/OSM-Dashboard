@@ -27,6 +27,7 @@ module.exports = function (scraper, db) {
           }
         }
         scraper.analyzeData(users);
+        scraper.refreshData();
       });
     });
   }
