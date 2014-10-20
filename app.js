@@ -63,9 +63,9 @@ setInterval(function() {
 },30000)
 
 
-setTimeout(function(){
-  app.dataNow(io);
-}, 100);
+//setTimeout(function(){
+//  app.dataNow(io);
+//}, 100);
 
 http.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
