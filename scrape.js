@@ -33,8 +33,8 @@ module.exports = function (scraper, db) {
 
   scraper.analyzeData = function (array) {
     users = array.sort(function(a, b) {
-      var keyA = a.items.length;
-      var keyB = b.items.length;
+      var keyA = a.edits;
+      var keyB = b.edits;
       if(keyA > keyB) return -1;
       if(keyA < keyB) return 1;
       return 0;
@@ -46,29 +46,29 @@ module.exports = function (scraper, db) {
       if (users[i] && users[i].count) {
         totalCount += users[i].count;
       }
-      if (users[i] && users[i].items.length) {
-        totalEdits += users[i].items.length;
+      if (users[i] && users[i].edits) {
+        totalEdits += users[i].edits;
       }
     }
-
 
     var data = {
       _id: 1,
       leaderboard: [
-        { name: users[0].name, count: users[0].items.length },
-        { name: users[1].name, count: users[1].items.length },
-        { name: users[2].name, count: users[2].items.length },
-        { name: users[3].name, count: users[3].items.length },
-        { name: users[4].name, count: users[4].items.length },
-        { name: users[5].name, count: users[5].items.length },
-        { name: users[6].name, count: users[6].items.length },
-        { name: users[7].name, count: users[7].items.length },
-        { name: users[8].name, count: users[8].items.length },
-        { name: users[9].name, count: users[9].items.length },
+        { name: users[0].name, count: users[0].edits },
+        { name: users[1].name, count: users[1].edits },
+        { name: users[2].name, count: users[2].edits },
+        { name: users[3].name, count: users[3].edits },
+        { name: users[4].name, count: users[4].edits },
+        { name: users[5].name, count: users[5].edits },
+        { name: users[6].name, count: users[6].edits },
+        { name: users[7].name, count: users[7].edits },
+        { name: users[8].name, count: users[8].edits },
+        { name: users[9].name, count: users[9].edits },
       ],
       stats: {
         totalUsers: users.length,
-        totalCount: totalCount
+        totalCount: totalCount,
+        totalEdits: totalEdits
       }
     }
 
