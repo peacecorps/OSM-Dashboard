@@ -5,8 +5,9 @@ module.exports = function (scraper, db) {
     db.collection('raw_data').find().toArray(function(err, result) {
       names = result.map(function(obj) { return obj.name });
       osm.fetchInstant(io, names, function() {
-        scraper.dataNow(io);
-        debugger;
+        setTimeout(function() {
+          scraper.dataNow(io);
+        }, 100);
         console.log('scrape!');
         return;
       });
