@@ -18,14 +18,11 @@ app.use(cookieParser());
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-var Db = mongo.Db;
-var Server = mongo.Server;
-var uri = process.env.MONGOLAB_URI || 'localhost';
-var db = new Db('peacecorp',
-  new Server(uri, '27017', {auto_reconnect: true}, {}),
-  {safe: true}
-);
-db.open(function(){
+var uri = process.env.MONGOLAB_URI || 'mongodb://localhost/peacecorp';
+var MongoClient = mongo.MongoClient;
+var db;
+MongoClient.connect(uri, function(err, database) {
+  db = database;
   io.on('connection', function(socket){
     console.log('a user connected');
     socket.on('disconnect', function(){
@@ -35,7 +32,19 @@ db.open(function(){
   setTimeout(function(){
     app.dataNow(io);
   }, 100);
+
+  require('./scrape.js')(app, db);
+  app.refreshData();
 });
+
+/*var Server = mongo.Server;
+var db = new Db('peacecorp',
+  new Server(uri, '27017', {auto_reconnect: true}, {}),
+  {safe: true}
+);
+db.open(function(){
+
+});*/
 
 app.use(function(req, res, next){
   req.db = db;
@@ -44,9 +53,6 @@ app.use(function(req, res, next){
 
 var routes = require('./routes');
 app.use('/', routes);
-
-require('./scrape.js')(app, db);
-app.refreshData();
 
 setInterval(function() {
   //console.log("refreshing data");
