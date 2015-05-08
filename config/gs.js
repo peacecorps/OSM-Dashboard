@@ -3,7 +3,7 @@ var GoogleSpreadsheet = require("google-spreadsheet");
 
 var my_sheet = new GoogleSpreadsheet(config.gsheet.key);
 
-var exports = module.exports = {}
+var exports = module.exports = {};
 
 exports.getUsers = function (callback) {
   var names = [];
@@ -18,10 +18,10 @@ exports.getUsers = function (callback) {
       callback(names);
     });
   });
-}
+};
 
 exports.insertName = function(name) {
   my_sheet.setAuth(config.gsheet.email,config.gsheet.password, function(err){
     my_sheet.addRow(name, { colname: 'whatisyouropenstreetmapusername' });
   });
-}
+};

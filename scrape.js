@@ -1,5 +1,6 @@
 var gs = require('./config/gs.js');
 var osm = require('./config/osm.js');
+
 module.exports = function (scraper, db) {
   scraper.dataNow = function(io) {
     db.collection('raw_data').find().toArray(function(err, result) {
@@ -8,10 +9,9 @@ module.exports = function (scraper, db) {
         setTimeout(function() {
           scraper.dataNow(io);
         }, 200);
-        return;
       });
     });
-  }
+  };
 
   scraper.refreshData = function() {
     console.log('refreshing data');
@@ -30,7 +30,7 @@ module.exports = function (scraper, db) {
         scraper.refreshData();
       });
     });
-  }
+  };
 
   scraper.analyzeData = function (array) {
     users = array.sort(function(a, b) {
@@ -71,7 +71,7 @@ module.exports = function (scraper, db) {
         totalCount: totalCount,
         totalEdits: totalEdits
       }
-    }
+    };
 
     db.collection('statistics').save(data, function(err, result) {
 
