@@ -6,27 +6,6 @@
 @import url(http://fonts.googleapis.com/css?family=Graduate);
 @import url(http://fonts.googleapis.com/css?family=Patua+One);
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: times;
-	vertical-align: baseline;
-}
-
 body, html {
   background-color: #F1ECD3
 }
@@ -41,18 +20,22 @@ body, html {
 }
 
 h1, h2, h3, h4, {
-  font-family: 'Patua One', cursive;
+}
+
+hr {
+  border-color: black;
 }
 
 .navbar {
-  box-shadow: 0px 0px 10px black;
-  margin: 0px;
+  box-shadow: 0 0 10px black;
+  margin: 0;
 }
+
 
 #map2 {
   position: relative;
-  top: 0px;
-  padding-top: 0px;
+  top: 0;
+  padding-top: 0;
   background-image:url('../img/cropped (2).gif');
   background-size: 100%;
   height: 300px;
@@ -60,7 +43,6 @@ h1, h2, h3, h4, {
 
 #map2 .title {
   color: white;
-  font-family: 'Patua One', cursive;
   font-size: 50px;
   bottom: 0px;
   top: 0px;
@@ -74,11 +56,22 @@ h1, h2, h3, h4, {
 #map2 .title h1 {
   position: absolute;
   right: 30px;
-  bottom: 20px;
+  bottom: 80px;
 }
 
 #about {
-  box-shadow: inset 0px -10px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  padding-bottom: 80px;
+  padding-top: 80px;
+
+  -webkit-box-shadow: inset 0px 0px 39px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 39px -2px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 39px -2px rgba(0,0,0,0.75);
+}
+
+#about-text {
+  font-size: 32px;
+  margin-bottom: 30px;
 }
 
 #about center {
@@ -90,58 +83,91 @@ h1, h2, h3, h4, {
   margin-bottom: 25px;
 }
 
-#about h1 {
-  font-size: 30px;
+#peace-corp-title h1 {
+  font-size: 54px;
   font-family: 'Patua One', cursive;
 }
 
 .h2 {
-	font-size: 100%;
-	text-align: center;
+  font-size: 100%;
+  text-align: center;
 }
 
 #h2 {
-	padding-top: 120px;
-	font-size: 100%;
+  padding-top: 120px;
+  font-size: 100%;
 }
 
-.modal-header {
-	font-size: 36px;
+.section-title {
+  text-align: center;
+  color: black;
+  font-size: 36px;
 }
 
-.list-group {
-	font-size: 20px;
+#map {
+  height: 500px;
 }
 
-.btn-group-vertical{
-	font-size: 20px;
+#leaderboard {
+  width: 100%;
+  height: 400px;
+}
+#leaderboard-row {
+  padding-top: 30px;
+  background: #e7e7e7;
 }
 
-.list-group-item {
-	font-size: 18px;
+.leaderboard-list-item {
+  font-size: 18px;
+}
+
+.leaderboard-graph {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 50px;
+}
+
+.leaderboard-graph-image {
+  width:80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #jumbotron-wrapper {
-	height: 300px;
+  height: 300px;
 }
 
 .jumbotron {
-	padding: 0px;
-	position: absolute;
-	height: 100%;
-	width: 100%;
+  padding: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 .jumbotron .row {
 
 }
 #statistics {
-	padding-top: 0px;
-	position:relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position:relative;
+  -webkit-box-shadow: 0px 0px 39px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 39px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 39px -2px rgba(0,0,0,0.75);
+
+  text-align: center;
+  display: block;
 }
 
-#statistics {
-	padding-top: 50px;
-	position:relative;
+#url {
+  width: 100%;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#instafeed-row {
+  background: #e7e7e7;
 }
 
 #instafeed a {
@@ -179,16 +205,32 @@ h1, h2, h3, h4, {
   opacity:1;
 }
 
-#insta-wrap {
-	width: 1280px;
-	height: 600px;
-	margin: 35px auto 0 auto;
-}
-
 #action-btn {
 	position: fixed;
 	top: 70px;
 	right: 20px;
+}
+
+.modal-header {
+  text-align: center;
+  font-size: 36px;
+}
+
+.modal-btn {
+  font-size: 20px !important;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  width: 100px;
+  height: 44px;
+}
+
+.modal-btn-desc {
+  padding-top: 12px;
+}
+
+.clearfix {
+  font-size: 15px;
 }
 
 #img {
@@ -198,10 +240,7 @@ h1, h2, h3, h4, {
 	z-index: -1
 }
 
- .boxed {
-  border: 5px solid blue ;
+.boxed {
+  border: 5px solid blue;
 }
 
-#url{
-	width: 100%
-}
